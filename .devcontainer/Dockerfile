@@ -2,6 +2,11 @@
 ARG VARIANT=16-bullseye
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:${VARIANT}
 
+ARG GITHUB_USERNAME
+ARG GITHUB_EMAIL
+ARG GITHUB_PAT
+
+
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
@@ -17,5 +22,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:${VARIANT}
 RUN git config --global credential.helper cache
 RUN git config --global --add --bool push.autoSetupRemote true
 
-RUN git config user.name $USER_NAME
-RUN git config user.email $USER_EMAIL
+RUN git config --global user.name "${GITHUB_USERNAME}"
+RUN git config --global user.email "${GITHUB_EMAIL}"
+RUN git config --global url."https://{GITHUB_PAT}:@github.com/".insteadOf "https://github.com/"
+# RUN git remote set-url origin "https://Elliot128:${GITHUB_PAT}/Elliot128/nx-monorepo.git"
