@@ -22,7 +22,8 @@ ARG GITHUB_PAT
 RUN git config --global credential.helper cache
 RUN git config --global --add --bool push.autoSetupRemote true
 
-RUN git config --global user.name "${GITHUB_USERNAME}"
-RUN git config --global user.email "${GITHUB_EMAIL}"
-RUN git config --global url."https://{GITHUB_PAT}:@github.com/".insteadOf "https://github.com/"
+# RUN git config --global user.name "${GITHUB_USERNAME}"
+# RUN git config --global user.email "${GITHUB_EMAIL}"
+# RUN git config --global url."https://{GITHUB_PAT}:@github.com/".insteadOf "https://github.com/"
+
 # RUN git remote set-url origin "https://Elliot128:${GITHUB_PAT}/Elliot128/nx-monorepo.git"
