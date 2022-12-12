@@ -3,10 +3,10 @@ services:
     build:
       dockerfile: Dockerfile
       context: .
-      args:
-        GITHUB_USERNAME: ${GITHUB_USERNAME}
-        GITHUB_EMAIL: ${GITHUB_EMAIL}
-        GITHUB_PAT: ${GITHUB_PAT}
+      # args:
+      #   GITHUB_USERNAME: ${GITHUB_USERNAME}
+      #   GITHUB_EMAIL: ${GITHUB_EMAIL}
+      #   GITHUB_PAT: ${GITHUB_PAT}
     tty: true
     working_dir: /nx-monorepo
     volumes:
