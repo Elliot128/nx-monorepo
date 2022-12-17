@@ -1,7 +1,7 @@
 {
-  "name": "express-api",
+  "name": "todo-api",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/express-api/src",
+  "sourceRoot": "packages/todo-api/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -10,11 +10,10 @@
       "options": {
         "target": "node",
         "compiler": "tsc",
-        "outputPath": "dist/packages/express-api",
-        "main": "packages/express-api/src/main.ts",
-        "tsConfig": "packages/express-api/tsconfig.app.json",
-        "assets": ["packages/express-api/src/assets"],
-        "watch": true
+        "outputPath": "dist/packages/todo-api",
+        "main": "packages/todo-api/src/main.ts",
+        "tsConfig": "packages/todo-api/tsconfig.app.json",
+        "assets": ["packages/todo-api/src/assets"]
       },
       "configurations": {
         "production": {
@@ -23,8 +22,8 @@
           "inspect": false,
           "fileReplacements": [
             {
-              "replace": "packages/express-api/src/environments/environment.ts",
-              "with": "packages/express-api/src/environments/environment.prod.ts"
+              "replace": "packages/todo-api/src/environments/environment.ts",
+              "with": "packages/todo-api/src/environments/environment.prod.ts"
             }
           ]
         }
@@ -33,15 +32,11 @@
     "serve": {
       "executor": "@nrwl/js:node",
       "options": {
-        "watch": true,
-        "buildTarget": "express-api:build",
-        "buildTargetOptions": {
-          "watch": true
-        }
+        "buildTarget": "todo-api:build"
       },
       "configurations": {
         "production": {
-          "buildTarget": "express-api:build:production"
+          "buildTarget": "todo-api:build:production"
         }
       }
     },
@@ -49,14 +44,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/express-api/**/*.ts"]
+        "lintFilePatterns": ["packages/todo-api/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "packages/express-api/jest.config.ts",
+        "jestConfig": "packages/todo-api/jest.config.ts",
         "passWithNoTests": true
       }
     }
